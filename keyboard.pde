@@ -3,7 +3,19 @@
 void keyPressed() {
 
   if (keyCode == 32) {
-    //newBookmark();
-    //newQuote();
+    
+    rowPointer++;
+    
+    if (rowPointer >= quotesTable.getRowCount()) {
+      rowPointer = 0;
+    }
+    
+    getQuoteRow(rowPointer);
+    
+    newQuote(Quote);    
+        
+    flipping = true;
+    pos = 0;
+    
   }
 }
