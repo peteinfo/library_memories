@@ -3,6 +3,8 @@
 //       LIBRARY MEMORIES
 // -------------------------------
 
+boolean printMode = false;
+
 // ------- table variables -------
 Table quotesTable;
 Table dewey;
@@ -61,6 +63,18 @@ void setup() {
   // create current quote and load in initial quote (blank)
   currentQuote = new StringBuilder();
   currentQuote.append(Quote);
+
+
+  if (printMode) {
+    
+    // ---- PRINT MODE ----
+
+    for (TableRow row : quotesTable.rows()) {
+      
+      
+    }
+    exit();
+  }
 }
 
 
@@ -69,6 +83,11 @@ void draw() {
 
   // set background
   background(backgroundCol);
+
+
+
+
+  // ---- SCREEN MODE ----
 
   // draw the main quote
   if (flipping) {
@@ -89,8 +108,8 @@ void draw() {
   pop();
 
   if (!flipping) {
-  
-    
+
+
     // display sentiment
     textSize(18);
     textAlign(CENTER);
@@ -108,7 +127,7 @@ void draw() {
     rectMode(CENTER);
     text(stack, 0, 0, 400, 100);
     pop();
-    
+
     // right book
     textSize(18);
     textAlign(CENTER);
@@ -122,6 +141,7 @@ void draw() {
   // update the quote animation
   if (flipping) updateQuoteAnimation();
 }
+
 
 
 void newQuote(String inputQuote) {
