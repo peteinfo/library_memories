@@ -80,7 +80,7 @@ void setup() {
   fontSubtitle = createFont("ProximaNovaA-Regular", 25);
   fontAuthor = createFont("ProximaNova-Regular", 35);
   fontBack = createFont("ProximaNovaA-ThinIt", 25);
-  fontStack = createFont("ArcherPro-Bold", 40);
+  fontStack = createFont("ArcherPro-Bold", 35);
 
   logo = loadShape("exLibris.svg");
 
@@ -347,20 +347,29 @@ void backPage() {
   text("WHAT IS IN THIS QUOTE?", 0, 0, 400, 100);
   pop();
 
-  // STACK SUGGESTIONS
+  // ANALYSIS
   textFont(fontStack);
   fill(textCol);
   textAlign(LEFT);
   push();
-  translate(width*0.47, height*0.4);
+  translate(width*0.47, height*0.36);
   rectMode(CENTER);
+  textLeading(50);
   text("People\nWork\nHumour\nPlace\nTime", 0, 0, 400, 400);
   pop();
+
+  for (int y = 0; y < 5; y++) {
+    for (int x = 0; x < 5; x++) {
+      noFill();
+      rect(width*0.44 + 52*x, height*0.215 + y*52, 35, 35);
+    }
+  }
+
 
   // display info
   textFont(fontBack);
   textAlign(LEFT, TOP);
-  textLeading(42);
+  textLeading(35);
   push();
   translate(width*0.5, height*0.66);
   rectMode(CENTER);
@@ -387,7 +396,7 @@ void backPage() {
   // display info
   textFont(fontBack);
   textAlign(LEFT, TOP);
-  textLeading(42);
+  textLeading(35);
   push();
   translate(width*0.5, height*0.85);
   rectMode(CENTER);
