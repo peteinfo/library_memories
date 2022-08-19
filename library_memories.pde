@@ -5,7 +5,9 @@
 
 import processing.pdf.*;
 
-boolean modeGeneratePDF = false;
+PGraphicsPDF pdf;
+
+boolean modeGeneratePDF = true;
 boolean modePrintLayout = true;
 boolean printedPDF = false;
 
@@ -97,12 +99,23 @@ void setup() {
 
     // ---- PRINT MODE ----
 
+    pdf = (PGraphicsPDF)beginRecord(PDF, "bookmarks.pdf");
+
 
     for (TableRow row : quotesTable.rows()) {
 
       // place code for print layout here
+
+      frontPage();
+      
+      pdf.nextPage();
+      
+      backPage();
+      
+      pdf.nextPage();
     }
-    //exit();
+    endRecord();
+    exit();
   }
 }
 
@@ -344,7 +357,7 @@ void backPage() {
   push();
   translate(width*0.38, height*0.20);
   rectMode(CENTER);
-  text("WHAT IS IN THIS QUOTE?", 0, 0, 400, 100);
+  text("QUOTE ANALYSIS", 0, 0, 400, 100);
   pop();
 
   // ANALYSIS
@@ -375,43 +388,47 @@ void backPage() {
   rectMode(CENTER);
   noFill();
   //rect(0, 0, width*0.68, 700);
-  text("This quote was analysed to determine it's characteristics. Do you agree? How does the quote make you feel?", 0, 0, width*0.68, 700);
+  text("This analysis of key characteristics helps us to match memories with books in the library.", 0, 0, width*0.68, 700);
   pop();
 
   // horizontal line
   strokeWeight(2);
-  line(0, height*0.55, width, height*0.55);
-  line(0, height*0.55 + 5, width, height*0.55 + 5);
+  line(0, height*0.51, width, height*0.51);
+  line(0, height*0.51 + 5, width, height*0.51 + 5);
 
   // display FIND A BOOK title
   textFont(fontSubtitle);
   fill(textCol);
   textAlign(LEFT);
   push();
-  translate(width*0.38, height*0.6);
+  translate(width*0.38, height*0.56);
   rectMode(CENTER);
-  text("FIND A BOOK", 0, 0, 400, 100);
+  text("FIND THIS BOOK", 0, 0, 400, 100);
   pop();
+
+  // BOOK SUGGESTION
+  textFont(fontStack, 27);
+  fill(textCol);
+  textAlign(LEFT);
+  push();
+  translate(width*0.47, height*0.7);
+  rectMode(CENTER);
+  text(Book_Suggestion_One + "\n\nLocation:" + stack, 0, 0, 400, 400);
+  pop();
+
+  // draw line
+  strokeWeight(1);
+  line(width*0.16, height*0.8, width*0.84, height*0.8);
 
   // display info
   textFont(fontBack);
   textAlign(LEFT, TOP);
   textLeading(35);
   push();
-  translate(width*0.5, height*0.85);
+  translate(width*0.5, height*0.96);
   rectMode(CENTER);
   noFill();
   //rect(0, 0, width*0.68, 700);
-  text("Match this quote with a book in the library. We suggest looking at books in these areas, but feel free to explore beyond these suggestions.", 0, 0, width*0.68, 700);
-  pop();
-
-  // STACK SUGGESTIONS
-  textFont(fontStack);
-  fill(textCol);
-  textAlign(LEFT);
-  push();
-  translate(width*0.47, height*0.9);
-  rectMode(CENTER);
-  text(stack, 0, 0, 400, 400);
+  text("We have selected this book in response to our analysis. Try to find it, or select another that you think connects to the quote.\nSlip this card into the book for someone else to find.", 0, 0, width*0.68, 400);
   pop();
 }

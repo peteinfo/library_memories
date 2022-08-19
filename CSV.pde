@@ -18,5 +18,5 @@ void getQuoteRow(int rowNum) {
   Book_Suggestion_Two = quotesTable.getString(rowNum, "Book_Suggestion_Two");
 
   sentiment = "Positive: " + Positive_Sentiment + "%\nNeutral: " + Neutral_Sentiment + "%\nNegative: " + Negative_Sentiment + "%";
-  stack = LOC_Class_Primary + ": " + LOC_Label_Primary + " " + "\n\n" + LOC_Class_Secondary + ": " + LOC_Label_Secondary;
+  stack = LOC_Class_Primary + " " + LOC_Label_Primary;
 }
