@@ -29,6 +29,11 @@ String   LOC_Class_Secondary;
 int      LOC_Class_Value_Secondary;
 String   Book_Suggestion_One;
 String   Book_Suggestion_Two;
+int      People;
+int      Work;
+int      Humour;
+int      Place;
+int      Time;
 
 String   sentiment;
 String   stack;
@@ -102,16 +107,25 @@ void setup() {
     pdf = (PGraphicsPDF)beginRecord(PDF, "bookmarks.pdf");
 
 
-    for (TableRow row : quotesTable.rows()) {
+    for (int n = 0; n < quotesTable.getRowCount(); n++) {
 
       // place code for print layout here
 
+      println("page: " + n);
+
+      getQuoteRow(n);
+      // create current quote and load in initial quote (blank)
+      currentQuote = new StringBuilder();
+      currentQuote.append(Quote);
+
+      background(backgroundCol);
       frontPage();
-      
+
       pdf.nextPage();
-      
+
+      background(backgroundCol);
       backPage();
-      
+
       pdf.nextPage();
     }
     endRecord();
@@ -371,12 +385,66 @@ void backPage() {
   text("People\nWork\nHumour\nPlace\nTime", 0, 0, 400, 400);
   pop();
 
-  for (int y = 0; y < 5; y++) {
-    for (int x = 0; x < 5; x++) {
+  strokeWeight(1);
+
+  // People
+  int y=0;
+  for (int x = 0; x < 5; x++) {
+    if (x < People) {
+      fill(textCol);
+    } else {
       noFill();
-      rect(width*0.44 + 52*x, height*0.215 + y*52, 35, 35);
     }
+    rect(width*0.44 + 52*x, height*0.215 + y*52, 35, 35);
   }
+
+  // Work
+  y++;
+  for (int x = 0; x < 5; x++) {
+    if (x < Work) {
+      fill(textCol);
+    } else {
+      noFill();
+    }
+    rect(width*0.44 + 52*x, height*0.215 + y*52, 35, 35);
+  }
+
+  // Humour
+  y++;
+  for (int x = 0; x < 5; x++) {
+    if (x < Humour) {
+      fill(textCol);
+    } else {
+      noFill();
+    }
+    rect(width*0.44 + 52*x, height*0.215 + y*52, 35, 35);
+  }
+
+  // Place
+  y++;
+  for (int x = 0; x < 5; x++) {
+    if (x < Place) {
+      fill(textCol);
+    } else {
+      noFill();
+    }
+    rect(width*0.44 + 52*x, height*0.215 + y*52, 35, 35);
+  }
+
+  // Time
+  y++;
+  for (int x = 0; x < 5; x++) {
+    if (x < Time) {
+      fill(textCol);
+    } else {
+      noFill();
+    }
+    rect(width*0.44 + 52*x, height*0.215 + y*52, 35, 35);
+  }
+
+
+
+
 
 
   // display info
@@ -413,7 +481,7 @@ void backPage() {
   push();
   translate(width*0.47, height*0.7);
   rectMode(CENTER);
-  text(Book_Suggestion_One + "\n\nLocation:" + stack, 0, 0, 400, 400);
+  text(Book_Suggestion_One + "\n\nLocation: " + stack, 0, 0, 400, 400);
   pop();
 
   // draw line
