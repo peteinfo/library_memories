@@ -17,5 +17,7 @@ void keyPressed() {
     flipping = true;
     pos = 0;
     
+    opacityTopTarget = 255;
+    
   }
 }

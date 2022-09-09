@@ -38,6 +38,10 @@ color shadeCol = color(212, 154, 141); // dusky pink
 //color backgroundCol = color(255, 255, 255);   // white
 //color textCol = color(255, 0, 0);   // pure red
 color textCol = color(201, 66, 59); // dark red
+float opacityTop = 0;
+float opacityTopTarget = 0;
+float opacityBottom = 0;
+float opacityBottomTarget = 0;
 
 // ------- font variables -------
 PFont fontQuote;
@@ -66,7 +70,7 @@ void setup() {
   //size(640, 1425);  // print dimensions
   //size(680, 1465);  // print dimensions WITH BLEED of 2mm on each side
   //size(1920, 1080);  // HD screen animation
-  size(960, 540);  // HD screen animation, half size tester
+  //size(960, 540);  // HD screen animation, half size tester
 
   u = height / 100;
 
