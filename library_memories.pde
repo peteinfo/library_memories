@@ -33,10 +33,11 @@ String   sentiment;
 String   stack;
 
 // ------- colour variables -------
-color backgroundCol = color(235, 199, 198); // pink
+color backgroundCol = color(218, 187, 181); // pink
+color shadeCol = color(212, 154, 141); // dusky pink
 //color backgroundCol = color(255, 255, 255);   // white
 //color textCol = color(255, 0, 0);   // pure red
-color textCol = color(215, 20, 20); // dark red
+color textCol = color(201, 66, 59); // dark red
 
 // ------- font variables -------
 PFont fontQuote;
@@ -45,6 +46,8 @@ PFont fontSubtitle;
 PFont fontAuthor;
 PFont fontBack;
 PFont fontStack;
+PFont fontStackScreen;
+PFont fontScreenQuote;
 
 PShape logo;
 
@@ -64,7 +67,7 @@ void setup() {
   //size(680, 1465);  // print dimensions WITH BLEED of 2mm on each side
   //size(1920, 1080);  // HD screen animation
   size(960, 540);  // HD screen animation, half size tester
-  
+
   u = height / 100;
 
   frameRate(24);
@@ -83,6 +86,8 @@ void setup() {
   fontAuthor = createFont("ProximaNova-Regular", 35);
   fontBack = createFont("ProximaNovaA-RegularIt", 28);
   fontStack = createFont("ArcherPro-Bold", 35);
+  fontStackScreen = createFont("ArcherPro", 35);
+  fontScreenQuote = createFont("ProximaNovaA-RegularIt", 60);
 
   logo = loadShape("exLibris.svg");
 
@@ -97,7 +102,7 @@ void setup() {
   if (modeGeneratePDF) {
 
     // ---- PRINT MODE ----
-    
+
     pdf = (PGraphicsPDF)beginRecord(PDF, "bookmarks.pdf");
 
     int pageCount = 0;
