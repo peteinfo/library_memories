@@ -62,7 +62,7 @@ boolean flipping = false;
 
 void setup() {
 
-  //fullScreen();
+  fullScreen(2);
   //size(640, 1425);  // print dimensions
   //size(680, 1465);  // print dimensions WITH BLEED of 2mm on each side
   //size(1920, 1080);  // HD screen animation

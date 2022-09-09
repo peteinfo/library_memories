@@ -21,14 +21,14 @@ void drawScreen() {
   }
 
   // display main quote
-  textAlign(CENTER, CENTER);
+  textAlign(LEFT, CENTER);
   push();
   translate(width*0.5, height*0.5);
   rectMode(CENTER);
   textFont(fontScreenQuote);
   textSize(u*5);
   textLeading(u*7);
-  text(currentQuote.toString(), 0, 0, 600, 800);
+  text(currentQuote.toString(), 0, 0, width*0.8, height*0.6);
   pop();
 
   if (!flipping) {
@@ -38,7 +38,7 @@ void drawScreen() {
     textFont(fontSubtitle, 2.5*u);
     fill(textCol);
     textAlign(CENTER);
-    text("QUOTE ANALYSIS", width*0.5, height*0.05);
+    text("QUOTE ANALYSIS", width*0.5, height*0.08);
 
 
     // ANALYSIS
@@ -48,11 +48,11 @@ void drawScreen() {
     textAlign(CENTER);
     push();
     //rectMode(CENTER);
-    text("People", width*0.1, height*0.1);
-    text("Work", width*0.3, height*0.1);
-    text("Humour", width*0.5, height*0.1);
-    text("Place", width*0.7, height*0.1);
-    text("Time", width*0.9, height*0.1);
+    text("People", width*0.2, height*0.125);
+    text("Work", width*0.35, height*0.125);
+    text("Humour", width*0.5, height*0.125);
+    text("Place", width*0.65, height*0.125);
+    text("Time", width*0.8, height*0.125);
 
     pop();
 
@@ -65,7 +65,7 @@ void drawScreen() {
       } else {
         noFill();
       }
-      rect(width*0.1-9*u + x*u*4, height*0.12, u*3, u*3);
+      rect(width*0.2-8.5*u + x*u*3.5, height*0.14, u*3, u*3);
     }
 
     // Work
@@ -75,7 +75,7 @@ void drawScreen() {
       } else {
         noFill();
       }
-      rect(width*0.3-9*u + x*u*4, height*0.12, u*3, u*3);
+      rect(width*0.35-8.5*u + x*u*3.5, height*0.14, u*3, u*3);
     }
 
     // Humour
@@ -85,7 +85,7 @@ void drawScreen() {
       } else {
         noFill();
       }
-      rect(width*0.5-9*u + x*u*4, height*0.12, u*3, u*3);
+      rect(width*0.5-8.5*u + x*u*3.5, height*0.14, u*3, u*3);
     }
 
     // Place
@@ -95,7 +95,7 @@ void drawScreen() {
       } else {
         noFill();
       }
-      rect(width*0.7-9*u + x*u*4, height*0.12, u*3, u*3);
+      rect(width*0.65-8.5*u + x*u*3.5, height*0.14, u*3, u*3);
     }
 
     // Time
@@ -105,7 +105,7 @@ void drawScreen() {
       } else {
         noFill();
       }
-      rect(width*0.9-9*u + x*u*4, height*0.12, u*3, u*3);
+      rect(width*0.8-8.5*u + x*u*3.5, height*0.14, u*3, u*3);
     }
 
 
@@ -116,16 +116,16 @@ void drawScreen() {
     text("FIND THIS BOOK", width*0.5, height*0.85);
 
     // BOOK SUGGESTION
-    textFont(fontStack, 3*u);
+    textFont(fontStack, 3.5*u);
     fill(textCol);
     textAlign(CENTER);
     push();
-    translate(width*0.5, height*0.9);
+    translate(width*0.5, height*0.89);
     rectMode(CENTER);
     text(Book_Title, 0, 0, width*0.8, u*5);
     textFont(fontStackScreen, 3*u);
-    text(Book_Author, 0, 4*u, width*0.8, u*5);
-    text(Book_Location, 0, 8*u, width*0.8, u*5);
+    text(Book_Author, 0, 4.5*u, width*0.8, u*5);
+    text(Book_Location, 0, 8.5*u, width*0.8, u*5);
 
     pop();
   }
@@ -137,7 +137,7 @@ void drawScreen() {
 
 void updateQuoteAnimation() {
 
-  for (int n = 0; n < 1; n++) {
+  for (int n = 0; n < 100; n++) {
 
     if (pos < currentQuote.length()) {
 
